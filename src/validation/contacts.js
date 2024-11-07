@@ -8,7 +8,7 @@ export const createContactSchema = Joi.object({
     .max(15)
     .pattern(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s0-9]*$/)
     .required(),
-  email: Joi.string().email().required(),
+  email: Joi.string().email(),
   isFavourite: Joi.boolean(),
   contactType: Joi.string().valid(...typeList),
 });
@@ -19,6 +19,6 @@ export const updateContactSchema = Joi.object({
     /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s0-9]*$/,
   ),
   email: Joi.string().email(),
-  isfavorite: Joi.boolean(),
+  isFavourite: Joi.boolean(),
   contactType: Joi.string().valid(...typeList),
 });
