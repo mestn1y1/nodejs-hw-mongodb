@@ -37,7 +37,10 @@ export const getContactsByIdController = async (req, res) => {
   const data = await getContactById(contactId, userId);
 
   if (!data) {
-    throw createHttpError(404, 'Contact not found');
+    throw createHttpError(
+      404,
+      'Contact not found or does not belong to the logged-in user',
+    );
   }
 
   res.json({
